@@ -1,0 +1,240 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/com.wise.baba"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/gray_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/ll_main"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/title_hight"
+        android:background="@color/title_back" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/my_account"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/title_hight"
+            android:layout_height="@dimen/title_hight"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margins"
+            android:padding="@dimen/margins"
+            android:src="@drawable/nav_back" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/margins"
+        android:paddingLeft="@dimen/margins"
+        android:paddingRight="30dp"
+        android:paddingTop="@dimen/margins" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/head_portrait"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+
+        <customView.CircleImageView
+            android:id="@+id/iv_pic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_people_no"
+            app:border_color="@color/white"
+            app:border_width="1dp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_white"
+            android:gravity="right"
+            android:paddingBottom="@dimen/margins"
+            android:paddingLeft="@dimen/margins"
+            android:paddingRight="30dp"
+            android:paddingTop="@dimen/margins"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/mobile_phone"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_white"
+            android:drawablePadding="@dimen/margins"
+            android:drawableRight="@drawable/btn_right"
+            android:gravity="right"
+            android:padding="10dp"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/nickname"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_white"
+            android:drawablePadding="@dimen/margins"
+            android:drawableRight="@drawable/btn_right"
+            android:gravity="right"
+            android:padding="10dp"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/my_email"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_sex"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_white"
+            android:drawablePadding="@dimen/margins"
+            android:drawableRight="@drawable/btn_right"
+            android:gravity="right"
+            android:padding="10dp"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/m_sex"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_birth"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_white"
+            android:drawablePadding="@dimen/margins"
+            android:drawableRight="@drawable/btn_right"
+            android:gravity="right"
+            android:padding="10dp"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/birthday"
+            android:textColor="@color/navy"
+            android:textSize="@dimen/content" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_update_pwd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/double_margins"
+        android:background="@drawable/bg_white"
+        android:drawablePadding="@dimen/margins"
+        android:drawableRight="@drawable/btn_right"
+        android:padding="10dp"
+        android:text="@string/update_password"
+        android:textColor="@color/navy"
+        android:textSize="@dimen/content" />
+
+</LinearLayout>

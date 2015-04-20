@@ -1,0 +1,22 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:background="@drawable/bg_white"
+    android:orientation="vertical" >
+    <ImageView 
+        android:layout_width="@dimen/image_width"
+        android:layout_height="@dimen/image_width"
+        android:layout_margin="@dimen/margins"
+        android:src="@drawable/icon_add"/>
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/content"
+        android:layout_marginBottom="@dimen/margins"
+        android:text="@string/add_car"/>
+</LinearLayout>

@@ -683,7 +683,6 @@ public class FaultActivity extends FragmentActivity {
 				carViews.get(index).getTv_adress().requestFocus();	
 				System.out.println("地理位置反解析321：" + currentPosition);
 				break;
-		
 			case getData:
 				jsonData(msg.obj.toString(), msg.arg1);
 				break;

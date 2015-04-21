@@ -20,6 +20,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -64,7 +65,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 public class CarLocationActivity extends Activity implements ConnectionCallbacks,
-		OnConnectionFailedListener,LocationListener{
+	OnConnectionFailedListener,LocationListener{
 	
 	private GoogleMap mMap;
 	LinearLayout ll_location_bottom;
@@ -82,6 +83,9 @@ public class CarLocationActivity extends Activity implements ConnectionCallbacks
 	boolean isTracking = false;
 	/** 实时路口 **/
 	boolean isTraffic = false;
+	
+
+	
 	private GoogleApiClient mGoogleApiClient;
 	
 	private static final LocationRequest REQUEST = LocationRequest.create()
@@ -97,17 +101,13 @@ public class CarLocationActivity extends Activity implements ConnectionCallbacks
 	   	setContentView(R.layout.activity_car_location);
 	   	
 		app = (AppApplication) getApplication();
-		
-		
-		
+
 		//定位
 		 mGoogleApiClient = new GoogleApiClient.Builder(this)
          .addApi(LocationServices.API)
          .addConnectionCallbacks(this)
          .addOnConnectionFailedListener(this)
          .build();
-		 
-		 
 
 		// 就初始化控件
 		ll_location_bottom = (LinearLayout) findViewById(R.id.ll_location_bottom);
@@ -168,7 +168,7 @@ public class CarLocationActivity extends Activity implements ConnectionCallbacks
 		}
 	};	
 
-	
+
 	private void initMapView(){	  
 
 		if(mMap==null){
@@ -231,12 +231,13 @@ private void trackingCar(LatLng lng1, LatLng lng2) {
 //			.points(points);
 //	mBaiduMap.addOverlay(ooPolyline);
 	
-	
+//	carMarker.remove();
 	mMap.addPolyline((new PolylineOptions())
             .add(lng1,lng2)
             .width(3)
             .color(Color.BLUE)
             .geodesic(true));
+//	getCarMarker(lng2);
 
 
 }
@@ -287,9 +288,6 @@ private void trackingCar(LatLng lng1, LatLng lng2) {
 		carMarker = (Marker) (mMap.addMarker(option));// 在地图上添加Marker，并显示
 		
 	}
-	
-	
-	
 
 	/** 页面destory时改为false **/
 	boolean isStop = true;
@@ -566,8 +564,6 @@ private void trackingCar(LatLng lng1, LatLng lng2) {
 
 	@Override
 	public void onLocationChanged(Location location) {
-		// TODO Auto-generated method stub
-
 		if (location == null || mMap == null)// map view 销毁后不在处理新接收的位置
 			return;
 		latitude = location.getLatitude();
@@ -576,10 +572,8 @@ private void trackingCar(LatLng lng1, LatLng lng2) {
 		app.Lon = longitude;
 		drawPhoneLocation(latitude, longitude);
 		
-//		System.out.println("时间:" + location.getTime());
-//		
-//		System.out.println("海拔："+location.getAltitude());
-//		
+		/*System.out.println("时间:" + location.getTime());
+		System.out.println("海拔："+location.getAltitude());*/
 		System.out.println("我的位置" +"纬度:" + latitude + "   " + "经度:" + longitude);
 	}
 

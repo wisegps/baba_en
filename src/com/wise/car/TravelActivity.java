@@ -182,13 +182,13 @@ public class TravelActivity extends Activity {
 		try {
 			travelDatas.clear();
 			JSONObject jsonObject = new JSONObject(result);
-			String distance = "行驶总里程：" + jsonObject.getString("total_distance") + "KM";
+			String distance = "distance:" + jsonObject.getString("total_distance") + "KM";
 			tv_distance.setText(distance);
-			String fuel = "油耗：" + jsonObject.getString("total_fuel") + "L";
+			String fuel = "fuel cost:" + jsonObject.getString("total_fuel") + "L";
 			tv_fuel.setText(fuel);
-			String hk_fuel = "百公里油耗：" + jsonObject.getString("avg_fuel") + "L";
+			String hk_fuel = "avg_fuel:" + jsonObject.getString("avg_fuel") + "L";
 			tv_hk_fuel.setText(hk_fuel);
-			String fee = "花费：" + jsonObject.getString("total_fee") + "元";
+			String fee = "fee cost:" + jsonObject.getString("total_fee") + "元";
 			tv_money.setText(fee);
 			String adressName = "";
 			JSONArray jsonArray = jsonObject.getJSONArray("data");
@@ -221,13 +221,13 @@ public class TravelActivity extends Activity {
 					travelData.setStart_lon(jsonObject2.getString("start_lon"));
 					travelData.setEnd_lat(jsonObject2.getString("end_lat"));
 					travelData.setEnd_lon(jsonObject2.getString("end_lon"));
-					travelData.setStart_place("起始位置");
-					travelData.setEnd_place("结束位置");
+					travelData.setStart_place("start");
+					travelData.setEnd_place("ending");
 					travelData.setSpacingDistance(jsonObject2.getString("cur_distance"));
-					travelData.setAverageOil("百公里油耗：" + jsonObject2.getString("avg_fuel") + "L");
-					travelData.setOil("油耗：" + jsonObject2.getString("cur_fuel") + "L");
-					travelData.setSpeed("平均速度：" + jsonObject2.getString("avg_speed") + "km/h");
-					travelData.setCost("花费：" + jsonObject2.getString("cur_fee") + "元");
+					travelData.setAverageOil("avg_fuel:" + jsonObject2.getString("avg_fuel") + "L");
+					travelData.setOil("fuel cost:" + jsonObject2.getString("cur_fuel") + "L");
+					travelData.setSpeed("avg speed:" + jsonObject2.getString("avg_speed") + "km/h");
+					travelData.setCost("fee cost:" + jsonObject2.getString("cur_fee") + "元");
 					travelDatas.add(travelData);
 				}
 			}

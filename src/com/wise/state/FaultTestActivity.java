@@ -118,19 +118,18 @@ public class FaultTestActivity extends FragmentActivity {
 		nstv_message = (NoticeScrollTextView) findViewById(R.id.nstv_message);
 		hs_car = (HScrollLayout) findViewById(R.id.hs_car);
 		
-//		fragmentManager = getSupportFragmentManager();
-//		FragmentTransaction transaction = fragmentManager.beginTransaction();
-//		NoticeFragment noticeFragment = new NoticeFragment();
-//		transaction.add(R.id.ll_notice, noticeFragment);
-//		transaction.commit();
+		fragmentManager = getSupportFragmentManager();
+		FragmentTransaction transaction = fragmentManager.beginTransaction();
+		NoticeFragment noticeFragment = new NoticeFragment();
+		transaction.add(R.id.ll_notice, noticeFragment);
+		transaction.commit();
 		
-		
-//		noticeFragment.SetBtnListener(new BtnListener() {
-//			@Override
-//			public void Back() {
-//				smv_content.snapToScreen(0);
-//			}
-//		});
+		noticeFragment.SetBtnListener(new BtnListener() {
+			@Override
+			public void Back() {
+				smv_content.snapToScreen(0);
+			}
+		});
 		new CycleThread().start();
 		hs_car.setOnViewChangeListener(new OnViewChangeListener() {
 			@Override

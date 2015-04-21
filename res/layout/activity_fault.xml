@@ -327,12 +327,12 @@
             </LinearLayout>
         </RelativeLayout>
 
-<!--         <LinearLayout
+        <LinearLayout
             android:id="@+id/ll_notice"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical" >
-        </LinearLayout> -->
+        </LinearLayout>
     </customView.ParentSlide>
 
 </LinearLayout>

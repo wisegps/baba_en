@@ -323,7 +323,7 @@ public class TravelActivity extends Activity {
 
 	/** 删除行程 **/
 	private void deleteTravel(int position) {
-		dialog = ProgressDialog.show(TravelActivity.this, "提示", "行程删除中");
+		dialog = ProgressDialog.show(TravelActivity.this, "Tips", "Deleting the travel");
 		dialog.setCancelable(true);
 		deleteTravelPosition = position;
 		int trip_id = travelDatas.get(position).getTrip_id();
@@ -344,10 +344,12 @@ public class TravelActivity extends Activity {
 				}
 				travelAdapter.notifyDataSetChanged();
 			} else {
-				Toast.makeText(TravelActivity.this, "行程删除失败", Toast.LENGTH_SHORT).show();
+				Toast.makeText(TravelActivity.this, "Delete the travel fail failed", 
+						Toast.LENGTH_SHORT).show();
 			}
 		} catch (Exception e) {
-			Toast.makeText(TravelActivity.this, "行程删除失败", Toast.LENGTH_SHORT).show();
+			Toast.makeText(TravelActivity.this, "Delete the travel fail failed", 
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -358,7 +360,7 @@ public class TravelActivity extends Activity {
 	private void renameTravel(int position, String name, boolean isProgressDialog) {
 		try {
 			if (isProgressDialog) {
-				dialog = ProgressDialog.show(TravelActivity.this, "提示", "行程重命名中");
+				dialog = ProgressDialog.show(TravelActivity.this, "Tips", "renaming the travel");
 				dialog.setCancelable(true);
 			}
 			renameTravelPosition = position;
@@ -386,10 +388,10 @@ public class TravelActivity extends Activity {
 				travelDatas.get(renameTravelPosition).setTrip_name(rename);
 				travelAdapter.notifyDataSetChanged();
 			} else {
-				Toast.makeText(TravelActivity.this, "行程重命名失败", Toast.LENGTH_SHORT).show();
+				Toast.makeText(TravelActivity.this, "Rename the travel failed", Toast.LENGTH_SHORT).show();
 			}
 		} catch (Exception e) {
-			Toast.makeText(TravelActivity.this, "行程重命名失败", Toast.LENGTH_SHORT).show();
+			Toast.makeText(TravelActivity.this, "Rename the travel failed", Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -398,7 +400,7 @@ public class TravelActivity extends Activity {
 
 	/** 录入实际油耗 **/
 	private void actAvgFuel(int position, float act_avg_fuel) {
-		dialog = ProgressDialog.show(TravelActivity.this, "提示", "实际油耗提交中");
+		dialog = ProgressDialog.show(TravelActivity.this, "Tips", "Submitting the actual fuel cost");
 		dialog.setCancelable(true);
 		actAvgFuelPosition = position;
 		act_fuel = act_avg_fuel;
@@ -420,11 +422,13 @@ public class TravelActivity extends Activity {
 				travelDatas.get(actAvgFuelPosition).setAct_avg_fuel(act_fuel);
 				travelAdapter.notifyDataSetChanged();
 			} else {
-				Toast.makeText(TravelActivity.this, "实际油耗提交失败", Toast.LENGTH_SHORT).show();
+				Toast.makeText(TravelActivity.this, "Submit the actual fuel cost failed",
+						Toast.LENGTH_SHORT).show();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			Toast.makeText(TravelActivity.this, "实际油耗提交失败", Toast.LENGTH_SHORT).show();
+			Toast.makeText(TravelActivity.this, "Submit the actual fuel cost failed",
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -449,15 +453,15 @@ public class TravelActivity extends Activity {
 			LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.builder_rename, null);
 			dialog.setView(layout);
 			final EditText et_rename = (EditText) layout.findViewById(R.id.et_rename);
-			et_rename.setHint("请输入收藏的名称");
-			dialog.setTitle("提示");
-			dialog.setNegativeButton("取消", null);
-			dialog.setPositiveButton("收藏", new DialogInterface.OnClickListener() {
+			et_rename.setHint("Please enter the name of the collection");
+			dialog.setTitle("Tips");
+			dialog.setNegativeButton("Cancel", null);
+			dialog.setPositiveButton("Collect", new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					String name = et_rename.getText().toString().trim();
 					if (name.equals("")) {
-						Toast.makeText(TravelActivity.this, "收藏的名称不能为空", Toast.LENGTH_SHORT).show();
+						Toast.makeText(TravelActivity.this, "The name of collection can't not be empty", Toast.LENGTH_SHORT).show();
 					} else {
 						collectPosition = position;
 						collectName = name;
@@ -475,7 +479,7 @@ public class TravelActivity extends Activity {
 
 	/** 收藏地址 **/
 	private void sureCollectAdress(String name, String adress, String lon, String lat) {
-		dialog = ProgressDialog.show(TravelActivity.this, "提示", "地址收藏中");
+		dialog = ProgressDialog.show(TravelActivity.this, "Tips", "Collecting the position");
 		dialog.setCancelable(true);
 		String url = Constant.BaseUrl + "favorite?auth_code=" + app.auth_code;
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -546,7 +550,7 @@ public class TravelActivity extends Activity {
 					renameTravel(collectPosition, collectName, false);
 					collectCommonAdress(collectName, collectAdres, Double.valueOf(collectLat), Double.valueOf(collectLon));
 				} else {
-					Toast.makeText(TravelActivity.this, "收藏的名称重复", Toast.LENGTH_SHORT).show();
+					Toast.makeText(TravelActivity.this, "The names of collection is existing", Toast.LENGTH_SHORT).show();
 				}
 			}
 
@@ -639,13 +643,14 @@ public class TravelActivity extends Activity {
 
 	private void showMore(final int position) {
 		final boolean isCollect = travelDatas.get(position).isCollect;
-		String collect = "收藏终点";
+		String collect = "Collection the ended position";
 		if (isCollect) {
-			collect = "已收藏";
+			collect = "You have collected";
 		}
 		AlertDialog.Builder builder = new Builder(TravelActivity.this);
-		builder.setTitle("更多");
-		builder.setItems(new String[] { collect, "删除行程", "重命名", "实际油耗" }, new DialogInterface.OnClickListener() {
+		builder.setTitle("More...");
+		builder.setItems(new String[] { collect, "Delete the travel", "Rename",
+				"The actual fuel cost" }, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				switch (which) {
@@ -669,9 +674,9 @@ public class TravelActivity extends Activity {
 					} else {
 						et_rename.setText(trip_name);
 					}
-					dialog1.setTitle("提示");
-					dialog1.setNegativeButton("取消", null);
-					dialog1.setPositiveButton("更改", new DialogInterface.OnClickListener() {
+					dialog1.setTitle("Tips");
+					dialog1.setNegativeButton("Cancel", null);
+					dialog1.setPositiveButton("Change", new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							String name = et_rename.getText().toString().trim();
@@ -690,24 +695,24 @@ public class TravelActivity extends Activity {
 					if (avg_fuel != 0) {
 						et_travel_record.setText(String.valueOf(avg_fuel));
 					}
-					dialog2.setTitle("行程油耗录入");
+					dialog2.setTitle("Record the fuel cost and travel");
 					dialog2.setView(view);
-					dialog2.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+					dialog2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							String record = et_travel_record.getText().toString().trim();
 							if (record.equals("")) {
-								Toast.makeText(TravelActivity.this, "实际油耗不能为空", Toast.LENGTH_SHORT).show();
+								Toast.makeText(TravelActivity.this, "fuel cost can't be empty", Toast.LENGTH_SHORT).show();
 							} else {
 								actAvgFuel(position, Float.valueOf(record));
 							}
 						}
-					}).setNegativeButton("取消", null).show();
+					}).setNegativeButton("cancel", null).show();
 					break;
 				}
 			}
 		});
-		builder.setNegativeButton("确定", null);
+		builder.setNegativeButton("OK", null);
 		builder.show();
 	}
 
@@ -778,6 +783,8 @@ public class TravelActivity extends Activity {
 			
 			
 			holder.tv_item_travel_spacingDistance.setText(travelData.getSpacingDistance() + "Km\\" + travelData.getSpacingTime());
+			
+			
 			holder.tv_item_travel_averageOil.setText(travelData.getAverageOil());
 			holder.tv_item_travel_oil.setText(travelData.getOil());
 			holder.tv_item_travel_speed.setText(travelData.getSpeed());

@@ -39,7 +39,7 @@
 		            android:layout_height="wrap_content"
 		            android:textColor="@color/navy"
 		            android:textSize="@dimen/content"
-		            android:text="行驶"/>
+		            android:text="@string/travel_detail"/>
 	            <TextView
 	                android:id="@+id/total_distance"
 		            android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
 		            android:layout_marginTop="@dimen/margins"
 		            android:textColor="@color/navy"
 		            android:textSize="@dimen/content"
-		            android:text="平均油耗"/>
+		            android:text="@string/avg_fuel_cost"/>
 	            <TextView
 	                android:id="@+id/tv_fuel"
 		            android:layout_width="wrap_content"

@@ -217,10 +217,6 @@ public class TravelActivity extends Activity {
 
 					travelData.setSpacingTime(GetSystem.ProcessTime(GetSystem.spacingTime(travelData.getStartTime(), travelData.getStopTime())));
 
-					System.out.println("sssssssssssssssssssssssssssssss" + GetSystem.ProcessTime(GetSystem.spacingTime(travelData.getStartTime(), travelData.getStopTime())));
-					
-					
-					
 					travelData.setStart_lat(jsonObject2.getString("start_lat"));
 					travelData.setStart_lon(jsonObject2.getString("start_lon"));
 					travelData.setEnd_lat(jsonObject2.getString("end_lat"));

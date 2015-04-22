@@ -28,6 +28,7 @@ import android.widget.TextView;
 
 import com.wise.baba.AppApplication;
 import com.wise.baba.R;
+import com.wise.baba.R.integer;
 
 import customView.WaitLinearLayout;
 import customView.WaitLinearLayout.OnFinishListener;
@@ -35,6 +36,12 @@ import data.CarData;
 
 /** 油耗明细列表 **/
 public class FuelDetailsActivity extends Activity implements IXListViewListener {
+	
+	
+	
+	private static final String mounthDay [] = {"1st","2nd","3rd","4th","5th","6th","7th","8th",
+			"9th","10th","11th","12th","13th","14th","15th","16th","17th","18th","19th",
+			"20th","21st","22nd","23rd","24th","25th","26th","27th","28th","29th","30th","31st"};
 
 	private static final int getData = 1;
 	private static final int Load = 2;
@@ -46,6 +53,8 @@ public class FuelDetailsActivity extends Activity implements IXListViewListener 
 	XListView lv_fuel;
 	TextView tv_title_fee;
 	CarData carData;
+	
+	String mouDay;
 
 	String NowYear = "";
 	AppApplication app;
@@ -265,21 +274,25 @@ public class FuelDetailsActivity extends Activity implements IXListViewListener 
 			}
 
 			FuelData fuelData = fuelDatas.get(position);
+			
 			String day = fuelData.getRcv_day();
+			
 			if (Type == VALUE_TITLE) {
 				if (isNowYear(day)) {
 					Title.tv_title_month.setText(ChineseMonth(Integer
-							.valueOf(day.substring(5, 7))) + "花费: ");
+							.valueOf(day.substring(5, 7))) + " " + "fee cost:");
 					Title.tv_title_fee.setText(fuelData.getTotal_fee());
 				} else {
 					// 不是则显示年月
-					Title.tv_title_month.setText(day.substring(0, 7) + "花费: ");
+					Title.tv_title_month.setText(day.substring(0, 7) + " " + "fee cost:");
 					Title.tv_title_fee.setText(fuelData.getTotal_fee());
 				}
 			} else {
-				holder.tv_day.setText(day.substring(day.length() - 2,
-						day.length())
-						+ "日");
+				
+				/*mouDay = mounthDay[(Integer.valueOf((String)(day.subSequence(day.length() - 2, day.length()))))-1];				
+				System.out.println("O(∩_∩)O哈哈~O(∩_∩)O哈哈~" + mouDay);*/
+				
+				holder.tv_day.setText(mounthDay[(Integer.valueOf((String)(day.subSequence(day.length() - 2, day.length()))))-1]);
 				holder.tv_fuel.setText(fuelData.getAvg_fuel());
 				holder.total_distance.setText(fuelData.getTotal_distance());
 				holder.tv_total_fee.setText(fuelData.getTotal_fee());
@@ -448,40 +461,40 @@ public class FuelDetailsActivity extends Activity implements IXListViewListener 
 		String Cmonth = "";
 		switch (month) {
 		case 1:
-			Cmonth = "一月";
+			Cmonth = "January";
 			break;
 		case 2:
-			Cmonth = "二月";
+			Cmonth = "February";
 			break;
 		case 3:
-			Cmonth = "三月";
+			Cmonth = "March";
 			break;
 		case 4:
-			Cmonth = "四月";
+			Cmonth = "April";
 			break;
 		case 5:
-			Cmonth = "五月";
+			Cmonth = "May";
 			break;
 		case 6:
-			Cmonth = "六月";
+			Cmonth = "June";
 			break;
 		case 7:
-			Cmonth = "七月";
+			Cmonth = "July";
 			break;
 		case 8:
-			Cmonth = "八月";
+			Cmonth = "August";
 			break;
 		case 9:
-			Cmonth = "九月";
+			Cmonth = "September";
 			break;
 		case 10:
-			Cmonth = "十月";
+			Cmonth = "October";
 			break;
 		case 11:
-			Cmonth = "十一月";
+			Cmonth = "November";
 			break;
 		case 12:
-			Cmonth = "十二月";
+			Cmonth = "December";
 			break;
 		}
 		return Cmonth;

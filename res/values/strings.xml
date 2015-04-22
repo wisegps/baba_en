@@ -366,7 +366,9 @@
     <string name="save_success">Saved successfully</string>
     <string name="noneed">Optional</string>
     <string name="car_travel">Car travel</string>
-    
+    <string name="avg_fuel_cost">average fuel cost:</string>
+    <string name="travel_detail">travel：</string>
+    <string name="updata_loading">loading...</string>
     
 
 </resources>

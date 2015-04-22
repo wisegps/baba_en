@@ -518,10 +518,8 @@ private void trackingCar(LatLng lng1, LatLng lng2) {
 				}).setNegativeButton(R.string.cancel, null).show();
 	}
 
-
-	
 	Marker phoneMark;
-
+	
 	/** 在地图上标记当前设备位置 **/
 	private void drawPhoneLocation(double latitude, double longitude) {
 		// 如果有当前位置，则先删除
@@ -559,8 +557,7 @@ private void trackingCar(LatLng lng1, LatLng lng2) {
 			mMap=null;
 			isStop = false;
 			isTracking = false;
-		}
-		
+		}	
 
 	@Override
 	public void onLocationChanged(Location location) {
@@ -571,9 +568,6 @@ private void trackingCar(LatLng lng1, LatLng lng2) {
 		app.Lat = latitude;
 		app.Lon = longitude;
 		drawPhoneLocation(latitude, longitude);
-		
-		/*System.out.println("时间:" + location.getTime());
-		System.out.println("海拔："+location.getAltitude());*/
 		System.out.println("我的位置" +"纬度:" + latitude + "   " + "经度:" + longitude);
 	}
 

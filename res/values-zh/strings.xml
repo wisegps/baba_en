@@ -359,5 +359,7 @@
      
      <string name="updata_loading">数据加载中...</string>
      <string name="touch_add_cars">点击添加车辆</string>
+     <string name="btn_set_vibrate">设置震动灵敏度</string>
+     <string name="sensitivity">灵敏度(1最高)</string>
 
 </resources>

@@ -370,5 +370,8 @@
     <string name="travel_detail">travel：</string>
     <string name="updata_loading">loading...</string>
     <string name="touch_add_cars">touch to add</string>
+    
+    <string name="sensitivity">Sensitive(highest at 1)</string>
+    <string name="btn_set_vibrate">set vibrate sensitivity</string>
 
 </resources>

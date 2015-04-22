@@ -226,7 +226,7 @@ public class TravelActivity extends Activity {
 					travelData.setSpacingDistance(jsonObject2.getString("cur_distance"));
 					travelData.setAverageOil("average fuel:" + jsonObject2.getString("avg_fuel") + "L");
 					travelData.setOil("fuel cost:" + jsonObject2.getString("cur_fuel") + "L");
-					travelData.setSpeed("Average speed:" + jsonObject2.getString("avg_speed") + "km/h");
+					travelData.setSpeed("average speed:" + jsonObject2.getString("avg_speed") + "km/h");
 					travelData.setCost("fee cost:" + jsonObject2.getString("cur_fee") + "yuan");
 					travelDatas.add(travelData);
 				}

@@ -1,5 +1,7 @@
 package com.wise.car;
 
+import google.geocoding.Geocoding;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -47,6 +49,8 @@ import android.widget.Toast;
 //import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 //import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 
+import com.baidu.navi.location.al;
+import com.google.android.gms.maps.model.LatLng;
 import com.wise.baba.AppApplication;
 import com.wise.baba.R;
 
@@ -66,6 +70,9 @@ public class TravelActivity extends Activity {
 	private static final int actAvgFuel = 4;
 	private static final int collectAdress = 5;
 	private static final int getIsCollect = 6;
+	
+	private static final int SHOW_START_LOCATION = 7;
+	private static final int SHOW_END_LOCATION = 8;
 
 	ImageView iv_activity_travel_data_next;
 	TextView tv_travel_date, tv_distance, tv_fuel, tv_hk_fuel, tv_money;
@@ -160,6 +167,37 @@ public class TravelActivity extends Activity {
 				break;
 			case getIsCollect:
 				jsonCollect(msg.obj.toString(), msg.arg1);
+				break;
+				
+			case SHOW_START_LOCATION:
+				String  startPosition = (String) msg.obj;	
+				dialog.dismiss();
+				AlertDialog.Builder startAlertDialog = new AlertDialog.Builder(TravelActivity.this);
+				startAlertDialog.setTitle("The starting location");
+				startAlertDialog.setMessage(startPosition);
+				startAlertDialog.setCancelable(false);
+				startAlertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+					}
+				});
+				startAlertDialog.show();
+				break;
+			case SHOW_END_LOCATION:
+				String  endPosition = (String) msg.obj;	
+				dialog.dismiss();
+				AlertDialog.Builder endAlertDialog = new AlertDialog.Builder(TravelActivity.this);
+				endAlertDialog.setTitle("The starting location");
+				endAlertDialog.setMessage(endPosition);
+				endAlertDialog.setCancelable(false);
+				endAlertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+					}
+				});
+				endAlertDialog.show();
 				break;
 			}
 		}
@@ -710,8 +748,10 @@ public class TravelActivity extends Activity {
 				holder.iv_item_travel_map = (ImageView) convertView.findViewById(R.id.iv_item_travel_map);
 				holder.iv_item_travel_share = (ImageView) convertView.findViewById(R.id.iv_item_travel_share);
 				holder.iv_item_travel_recordShow = (ImageView) convertView.findViewById(R.id.iv_item_travel_recordShow);
+				//起始位置和停止位置
 				holder.iv_nav_start = (ImageView) convertView.findViewById(R.id.iv_nav_start);
 				holder.iv_nav_stop = (ImageView) convertView.findViewById(R.id.iv_nav_stop);
+				//地图行程路线
 				holder.iv_item_travel_more = (ImageView) convertView.findViewById(R.id.iv_item_travel_more);
 				convertView.setTag(holder);
 			} else {
@@ -731,8 +771,12 @@ public class TravelActivity extends Activity {
 			}
 			holder.tv_item_travel_startTime.setText(travelData.getStartTime().substring(10, 16));
 			holder.tv_item_travel_stopTime.setText(travelData.getStopTime().substring(10, 16));
+			
 			holder.tv_item_travel_startPlace.setText("Start:" + travelData.getStart_place());
 			holder.tv_item_travel_stopPlace.setText("End:" + travelData.getEnd_place());
+			
+			
+			
 			holder.tv_item_travel_spacingDistance.setText(travelData.getSpacingDistance() + "Km\\" + travelData.getSpacingTime());
 			holder.tv_item_travel_averageOil.setText(travelData.getAverageOil());
 			holder.tv_item_travel_oil.setText(travelData.getOil());
@@ -782,22 +826,37 @@ public class TravelActivity extends Activity {
 //					Toast.makeText(TravelActivity.this, content, Toast.LENGTH_SHORT).show();
 //				}
 //			});
-//			holder.iv_nav_start.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					LatLng pt1 = new LatLng(app.Lat, app.Lon);
-//					LatLng pt2 = new LatLng(Double.valueOf(travelData.getStart_lat()), Double.valueOf(travelData.getStart_lon()));
-//					GetSystem.FindCar(TravelActivity.this, pt1, pt2, "point", "point1");
-//				}
-//			});
-//			holder.iv_nav_stop.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					LatLng pt1 = new LatLng(app.Lat, app.Lon);
-//					LatLng pt2 = new LatLng(Double.valueOf(travelData.getEnd_lat()), Double.valueOf(travelData.getEnd_lon()));
-//					GetSystem.FindCar(TravelActivity.this, pt1, pt2, "point", "point1");
-//				}
-//			});
+			
+			
+			holder.iv_nav_start.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					/*LatLng pt1 = new LatLng(app.Lat, app.Lon);*/
+					LatLng pt2 = new LatLng(Double.valueOf(travelData.getStart_lat()), Double.valueOf(travelData.getStart_lon()));			
+					dialog = new ProgressDialog(TravelActivity.this);
+					dialog.setTitle("start location");
+					dialog.setMessage("loading...");
+					dialog.setCancelable(true);
+					dialog.show();
+					new Geocoding.GetGoogleGeocoding(handler, pt2, SHOW_START_LOCATION).start();
+				}
+			});
+			holder.iv_nav_stop.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					/*LatLng pt1 = new LatLng(app.Lat, app.Lon);*/
+					/*GetSystem.FindCar(TravelActivity.this, pt1, pt2, "point", "point1");*/
+					LatLng pt2 = new LatLng(Double.valueOf(travelData.getEnd_lat()), Double.valueOf(travelData.getEnd_lon()));
+					dialog = new ProgressDialog(TravelActivity.this);
+					dialog.setTitle("start location");
+					dialog.setMessage("loading...");
+					dialog.setCancelable(true);
+					dialog.show();
+					new Geocoding.GetGoogleGeocoding(handler, pt2, SHOW_END_LOCATION).start();
+				}
+			});
+			
+			
 			holder.iv_item_travel_more.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {

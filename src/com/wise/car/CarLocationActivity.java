@@ -14,6 +14,7 @@ import pubclas.NetThread;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -83,11 +84,9 @@ public class CarLocationActivity extends Activity implements ConnectionCallbacks
 	boolean isTracking = false;
 	/** 实时路口 **/
 	boolean isTraffic = false;
-	
 
 	
 	private GoogleApiClient mGoogleApiClient;
-	
 	private static final LocationRequest REQUEST = LocationRequest.create()
 	            .setInterval(5000)         // 5 seconds
 	            .setFastestInterval(16)    // 16ms = 60fps

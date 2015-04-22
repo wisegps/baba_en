@@ -358,5 +358,6 @@
      <string name="travel_detail">行驶：</string>
      
      <string name="updata_loading">数据加载中...</string>
+     <string name="touch_add_cars">点击添加车辆</string>
 
 </resources>

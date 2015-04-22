@@ -173,6 +173,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:textColor="@color/navy"
+                    android:hint="@string/touch_add_cars"
                     android:textSize="@dimen/content" />
             </LinearLayout>
         </LinearLayout>

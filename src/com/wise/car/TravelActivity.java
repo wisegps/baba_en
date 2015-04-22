@@ -186,9 +186,9 @@ public class TravelActivity extends Activity {
 			tv_distance.setText(distance);
 			String fuel = "fuel cost:" + jsonObject.getString("total_fuel") + "L";
 			tv_fuel.setText(fuel);
-			String hk_fuel = "avg_fuel:" + jsonObject.getString("avg_fuel") + "L";
+			String hk_fuel = "avg fuel:" + jsonObject.getString("avg_fuel") + "L";
 			tv_hk_fuel.setText(hk_fuel);
-			String fee = "fee cost:" + jsonObject.getString("total_fee") + "元";
+			String fee = "fee cost:" + jsonObject.getString("total_fee") + "yuan";
 			tv_money.setText(fee);
 			String adressName = "";
 			JSONArray jsonArray = jsonObject.getJSONArray("data");
@@ -217,17 +217,21 @@ public class TravelActivity extends Activity {
 
 					travelData.setSpacingTime(GetSystem.ProcessTime(GetSystem.spacingTime(travelData.getStartTime(), travelData.getStopTime())));
 
+					System.out.println("sssssssssssssssssssssssssssssss" + GetSystem.ProcessTime(GetSystem.spacingTime(travelData.getStartTime(), travelData.getStopTime())));
+					
+					
+					
 					travelData.setStart_lat(jsonObject2.getString("start_lat"));
 					travelData.setStart_lon(jsonObject2.getString("start_lon"));
 					travelData.setEnd_lat(jsonObject2.getString("end_lat"));
 					travelData.setEnd_lon(jsonObject2.getString("end_lon"));
-					travelData.setStart_place("start");
-					travelData.setEnd_place("ending");
+					travelData.setStart_place("The starting position");
+					travelData.setEnd_place("The ending position");
 					travelData.setSpacingDistance(jsonObject2.getString("cur_distance"));
-					travelData.setAverageOil("avg_fuel:" + jsonObject2.getString("avg_fuel") + "L");
+					travelData.setAverageOil("average fuel:" + jsonObject2.getString("avg_fuel") + "L");
 					travelData.setOil("fuel cost:" + jsonObject2.getString("cur_fuel") + "L");
-					travelData.setSpeed("avg speed:" + jsonObject2.getString("avg_speed") + "km/h");
-					travelData.setCost("fee cost:" + jsonObject2.getString("cur_fee") + "元");
+					travelData.setSpeed("Average speed:" + jsonObject2.getString("avg_speed") + "km/h");
+					travelData.setCost("fee cost:" + jsonObject2.getString("cur_fee") + "yuan");
 					travelDatas.add(travelData);
 				}
 			}
@@ -731,9 +735,9 @@ public class TravelActivity extends Activity {
 			}
 			holder.tv_item_travel_startTime.setText(travelData.getStartTime().substring(10, 16));
 			holder.tv_item_travel_stopTime.setText(travelData.getStopTime().substring(10, 16));
-			holder.tv_item_travel_startPlace.setText("起点：" + travelData.getStart_place());
-			holder.tv_item_travel_stopPlace.setText("终点：" + travelData.getEnd_place());
-			holder.tv_item_travel_spacingDistance.setText("共" + travelData.getSpacingDistance() + "公里\\" + travelData.getSpacingTime());
+			holder.tv_item_travel_startPlace.setText("Start:" + travelData.getStart_place());
+			holder.tv_item_travel_stopPlace.setText("End:" + travelData.getEnd_place());
+			holder.tv_item_travel_spacingDistance.setText(travelData.getSpacingDistance() + "Km\\" + travelData.getSpacingTime());
 			holder.tv_item_travel_averageOil.setText(travelData.getAverageOil());
 			holder.tv_item_travel_oil.setText(travelData.getOil());
 			holder.tv_item_travel_speed.setText(travelData.getSpeed());

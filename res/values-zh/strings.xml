@@ -353,5 +353,6 @@
     
     <string name="set_vibrate">设置震动灵敏度</string>
     <string name="save_success">修改成功</string>
+    <string name="car_travel">车辆行程</string>
 
 </resources>

@@ -341,12 +341,12 @@ public class GetSystem {
 	public static String ProcessTime(int Second) {
 		if (Second < 60) {
 			// 小于60秒
-			return "1分";
+			return "1minute";
 		} else if (Second < 60 * 60) {
 			// 小于一个小时
-			return (Second / 60) + "分钟";
+			return (Second / 60) + "1minute";
 		} else {
-			return (Second / 3600) + "小时";
+			return (Second / 3600) + "hour";
 		}
 	}
 

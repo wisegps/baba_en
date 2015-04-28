@@ -48,14 +48,14 @@ public class AppApplication extends LitePalApplication {
 	public double Lon = 0;
 	/** 车辆信息 **/
 	public List<CarData> carDatas = new ArrayList<CarData>();
-	/** 好友信息 **/
-	public List<FriendData> friendDatas = new ArrayList<FriendData>();
+//	/** 好友信息 **/
+//	public List<FriendData> friendDatas = new ArrayList<FriendData>();
 
-	@Override
-	public void onCreate() {
-		super.onCreate();
-		GetSystem.myLog(TAG, "onCreate");
-		// 百度地图初始化
-		SDKInitializer.initialize(getApplicationContext());
-	}
+//	@Override
+//	public void onCreate() {
+//		super.onCreate();
+//		GetSystem.myLog(TAG, "onCreate");
+//		// 百度地图初始化
+//		SDKInitializer.initialize(getApplicationContext());
+//	}
 }

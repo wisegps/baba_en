@@ -1,4 +1,4 @@
-package com.wise.notice;
+/*package com.wise.notice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +36,11 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/**
+*//**
  * 个人信息界面
  * 
  * @author honesty
- **/
+ **//*
 public class FriendInfoActivity extends Activity {
 
 	private static final int get_customer = 1;
@@ -55,7 +55,7 @@ public class FriendInfoActivity extends Activity {
 	AppApplication app;
 	int FriendId = 0;
 	String FriendName;
-	/** 判断当前页面的状态 **/
+	*//** 判断当前页面的状态 **//*
 	int TYPE_FRIEND;
 
 	@Override
@@ -146,7 +146,7 @@ public class FriendInfoActivity extends Activity {
 		}
 	};
 
-	/** 删除好友 **/
+	*//** 删除好友 **//*
 	private void deleteFriend() {
 		String url = Constant.BaseUrl + "customer/" + app.cust_id + "/friend/"
 				+ FriendId + "?auth_code=" + app.auth_code;
@@ -174,7 +174,7 @@ public class FriendInfoActivity extends Activity {
 		}
 	}
 
-	/** 判断好友是否已经添加 **/
+	*//** 判断好友是否已经添加 **//*
 	private void judgeIsAddFriend() {
 		if (app.cust_id.equals(String.valueOf(FriendId))) {
 			// 自己
@@ -223,21 +223,21 @@ public class FriendInfoActivity extends Activity {
 		}
 	}
 
-	/** 通过名称获取好友信息 **/
+	*//** 通过名称获取好友信息 **//*
 	private void getFriendInfoName(String name) {
 		String url = Constant.BaseUrl + "customer/search?auth_code="
 				+ app.auth_code + "&account=" + name;
 		new NetThread.GetDataThread(handler, url, get_customer).start();
 	}
 
-	/** 通过id获取要添加的好友信息 **/
+	*//** 通过id获取要添加的好友信息 **//*
 	private void getFriendInfoId() {
 		String url = Constant.BaseUrl + "customer/" + FriendId + "?auth_code="
 				+ app.auth_code;
 		new NetThread.GetDataThread(handler, url, get_customer).start();
 	}
 
-	/** 解析好友信息 **/
+	*//** 解析好友信息 **//*
 	private void jsonFriendInfo(String result) {
 		try {
 			JSONObject jsonObject = new JSONObject(result);
@@ -314,4 +314,4 @@ public class FriendInfoActivity extends Activity {
 		mPopupWindow.showAsDropDown(
 				FriendInfoActivity.this.findViewById(R.id.iv_menu), 0, 0);
 	}
-}
+}*/

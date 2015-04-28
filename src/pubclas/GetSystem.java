@@ -344,7 +344,7 @@ public class GetSystem {
 			return "1minute";
 		} else if (Second < 60 * 60) {
 			// 小于一个小时
-			return (Second / 60) + "minute";
+			return (Second / 60) + "min";
 		} else {
 			return (Second / 3600) + "hour";
 		}

@@ -67,7 +67,7 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 	AppApplication app;
 	ImageView iv_fm_back, iv_add;
 	Button bt_info, bt_friend, bt_set;
-	FriendAdapter friendAdapter;
+	/*FriendAdapter friendAdapter;*/
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,17 +88,17 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 		}
 		bt_info = (Button) getActivity().findViewById(R.id.bt_info);
 		bt_info.setOnClickListener(onClickListener);
-		bt_friend = (Button) getActivity().findViewById(R.id.bt_friend);
-		bt_friend.setOnClickListener(onClickListener);
+		/*bt_friend = (Button) getActivity().findViewById(R.id.bt_friend);
+		bt_friend.setOnClickListener(onClickListener);*/
 		bt_set = (Button) getActivity().findViewById(R.id.bt_set);
 		bt_set.setOnClickListener(onClickListener);
-		lv_friend = (XListView) getActivity().findViewById(R.id.lv_friend);
-		friendAdapter = new FriendAdapter();
-		lv_friend.setAdapter(friendAdapter);
+		/*lv_friend = (XListView) getActivity().findViewById(R.id.lv_friend);
+		friendAdapter = new FriendAdapter();*/
+		/*lv_friend.setAdapter(friendAdapter);
 		lv_friend.setPullLoadEnable(false);
 		lv_friend.setPullRefreshEnable(false);
 		lv_friend.setOnItemClickListener(onItemClickListener);
-		lv_friend.setOnScrollListener(onScrollListener);
+		lv_friend.setOnScrollListener(onScrollListener);*/
 		// getFriendData();
 
 		lv_notice = (XListView) getActivity().findViewById(R.id.lv_notice);
@@ -175,15 +175,15 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 	public void ClearNotice() {
 		noticeDatas.clear();
 		noticeAdapter.notifyDataSetChanged();
-		app.friendDatas.clear();
-		friendAdapter.notifyDataSetChanged();
+		/*app.friendDatas.clear();*/
+		/*friendAdapter.notifyDataSetChanged();*/
 	}
 
 	/** 刷新通知 **/
 	public void ResetNotice() {
 		noticeDatas.clear();
 		getData();
-		app.friendDatas.clear();
+		/*app.friendDatas.clear();*/
 		// getFriendData();
 	}
 
@@ -207,10 +207,10 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 				removeNoticeThreadMark(msg.arg1);
 				noticeAdapter.notifyDataSetChanged();
 				break;
-			case getFriendImage:
+			/*case getFriendImage:
 				removeFriendThreadMark(msg.arg1);
 				friendAdapter.notifyDataSetChanged();
-				break;
+				break;*/
 			case get_all_friend:
 				// jsonFriendData(msg.obj.toString());
 				break;
@@ -315,7 +315,7 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 		}
 	}
 
-	/** 好友列表点击 **/
+	/** 好友列表点击 **//*
 	OnItemClickListener onItemClickListener = new OnItemClickListener() {
 		@Override
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -336,10 +336,10 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 				startActivityForResult(intent, 4);
 			}
 		}
-	};
+	};*/
 
 
-	class FriendAdapter extends BaseAdapter {
+/*	class FriendAdapter extends BaseAdapter {
 		LayoutInflater inflater = LayoutInflater.from(getActivity());
 
 		@Override
@@ -355,9 +355,9 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 		@Override
 		public long getItemId(int position) {
 			return position;
-		}
+		}*/
 
-		@Override
+/*		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			ViewHolder holder;
 			if (convertView == null) {
@@ -394,7 +394,7 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 			TextView tv_name;
 			CircleImageView iv_image;
 		}
-	}
+	}*/
 
 	class NoticeAdapter extends BaseAdapter {
 		LayoutInflater inflater = LayoutInflater.from(getActivity());
@@ -608,9 +608,9 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 			case OnScrollListener.SCROLL_STATE_IDLE:// 停止
 				// 读取图片
 				switch (view.getId()) {
-				case R.id.lv_friend:
+			/*	case R.id.lv_friend:
 					getFriendLogo();
-					break;
+					break;*/
 				case R.id.lv_notice:
 					getNoticeImage();
 					break;
@@ -629,7 +629,7 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 				getActivity(), faceContent);
 	}
 
-	/** 获取好友列表图片 **/
+/*	*//** 获取好友列表图片 **//*
 	private void getFriendLogo() {
 		int start = lv_friend.getFirstVisiblePosition();
 		int stop = lv_friend.getLastVisiblePosition();
@@ -654,7 +654,7 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 				}
 			}
 		}
-	}
+	}*/
 
 	/** 获取显示区域通知的图片 **/
 	private void getNoticeImage() {
@@ -741,7 +741,7 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 		}
 	}
 
-	class FriendImageThread extends Thread {
+/*	class FriendImageThread extends Thread {
 		int position;
 
 		public FriendImageThread(int position) {
@@ -770,7 +770,7 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 			handler.sendMessage(message);
 		}
 	}
-
+*/
 	class NoticeImageThread extends Thread {
 		int position;
 
@@ -849,7 +849,7 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 	// 0);
 	// }
 
-	@Override
+/*	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == 1 && resultCode == 2) {
@@ -880,7 +880,7 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 			// 重新获取服务器数据，确保一致
 			// getFriendData();
 		}
-	}
+	}*/
 
 	@Override
 	public void onResume() {

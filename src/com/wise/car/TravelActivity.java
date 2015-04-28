@@ -220,13 +220,13 @@ public class TravelActivity extends Activity {
 		try {
 			travelDatas.clear();
 			JSONObject jsonObject = new JSONObject(result);
-			String distance = "distance:" + jsonObject.getString("total_distance") + "KM";
+			String distance = "Distance:" + jsonObject.getString("total_distance") + "KM";
 			tv_distance.setText(distance);
-			String fuel = "fuel cost:" + jsonObject.getString("total_fuel") + "L";
+			String fuel = "Fuel Cost:" + jsonObject.getString("total_fuel") + "L";
 			tv_fuel.setText(fuel);
-			String hk_fuel = "avg fuel:" + jsonObject.getString("avg_fuel") + "L";
+			String hk_fuel = "Avg  Fuel:" + jsonObject.getString("avg_fuel") + "L";
 			tv_hk_fuel.setText(hk_fuel);
-			String fee = "fee cost:" + jsonObject.getString("total_fee") + "yuan";
+			String fee = "Fee  Cost:" + jsonObject.getString("total_fee") + "yuan";
 			tv_money.setText(fee);
 			String adressName = "";
 			JSONArray jsonArray = jsonObject.getJSONArray("data");
@@ -262,10 +262,10 @@ public class TravelActivity extends Activity {
 					travelData.setStart_place("The starting position");
 					travelData.setEnd_place("The ending position");
 					travelData.setSpacingDistance(jsonObject2.getString("cur_distance"));
-					travelData.setAverageOil("average fuel:" + jsonObject2.getString("avg_fuel") + "L");
-					travelData.setOil("fuel cost:" + jsonObject2.getString("cur_fuel") + "L");
-					travelData.setSpeed("average speed:" + jsonObject2.getString("avg_speed") + "km/h");
-					travelData.setCost("fee cost:" + jsonObject2.getString("cur_fee") + "yuan");
+					travelData.setAverageOil("Avg    Fuel :" + jsonObject2.getString("avg_fuel") + "L");
+					travelData.setOil("Fuel Cost:" + jsonObject2.getString("cur_fuel") + "L");
+					travelData.setSpeed("Avg Speed:" + jsonObject2.getString("avg_speed") + "km/h");
+					travelData.setCost("Fee Cost :" + jsonObject2.getString("cur_fee") + "yuan");
 					travelDatas.add(travelData);
 				}
 			}
@@ -778,7 +778,7 @@ public class TravelActivity extends Activity {
 			holder.tv_item_travel_stopTime.setText(travelData.getStopTime().substring(10, 16));
 			
 			holder.tv_item_travel_startPlace.setText("Start:" + travelData.getStart_place());
-			holder.tv_item_travel_stopPlace.setText("End:" + travelData.getEnd_place());
+			holder.tv_item_travel_stopPlace.setText (" End :" + travelData.getEnd_place());
 			
 			
 			

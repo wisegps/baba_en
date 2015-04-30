@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/margins"
-        android:text="本月花费:"
+        android:text="@string/month_fee_cost"
         android:textColor="@color/white"
         android:textSize="@dimen/main" />
     <TextView
@@ -20,7 +20,7 @@
         android:paddingTop="@dimen/margins"
         android:paddingBottom="@dimen/margins"
         android:paddingRight="@dimen/margins"
-        android:text="79.00"
+        android:text="0.00"
         android:textColor="@color/white"
         android:textSize="@dimen/title" />
 </LinearLayout>

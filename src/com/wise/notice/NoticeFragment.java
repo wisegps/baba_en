@@ -79,19 +79,19 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		app = (AppApplication) getActivity().getApplication();
-		iv_add = (ImageView) getActivity().findViewById(R.id.iv_add);
-		iv_add.setOnClickListener(onClickListener);
+		/*iv_add = (ImageView) getActivity().findViewById(R.id.iv_add);
+		iv_add.setOnClickListener(onClickListener);*/
 		iv_fm_back = (ImageView) getActivity().findViewById(R.id.iv_fm_back);
 		iv_fm_back.setOnClickListener(onClickListener);
 		if (isVisible) {
 			iv_fm_back.setVisibility(View.VISIBLE);
 		}
-		bt_info = (Button) getActivity().findViewById(R.id.bt_info);
-		bt_info.setOnClickListener(onClickListener);
+		/*bt_info = (Button) getActivity().findViewById(R.id.bt_info);
+		bt_info.setOnClickListener(onClickListener);*/
 		/*bt_friend = (Button) getActivity().findViewById(R.id.bt_friend);
 		bt_friend.setOnClickListener(onClickListener);*/
-		bt_set = (Button) getActivity().findViewById(R.id.bt_set);
-		bt_set.setOnClickListener(onClickListener);
+		/*bt_set = (Button) getActivity().findViewById(R.id.bt_set);
+		bt_set.setOnClickListener(onClickListener);*/
 		/*lv_friend = (XListView) getActivity().findViewById(R.id.lv_friend);
 		friendAdapter = new FriendAdapter();*/
 		/*lv_friend.setAdapter(friendAdapter);
@@ -122,27 +122,29 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 			case R.id.iv_fm_back:
 				btnListener.Back();
 				break;
-			case R.id.bt_info:
+			/*case R.id.bt_info:
 				lv_notice.setVisibility(View.VISIBLE);
 				lv_friend.setVisibility(View.GONE);
-				break;
-			case R.id.bt_friend:
+				break;*/
+			/*case R.id.bt_friend:
 				lv_notice.setVisibility(View.GONE);
 				lv_friend.setVisibility(View.VISIBLE);
-				break;
-			case R.id.bt_set:
+				break;*/
+			/*case R.id.bt_set:
 				startActivity(new Intent(getActivity(), SetActivity.class));
-				break;
-			case R.id.iv_add:
+				break;*/
+			/*case R.id.iv_add:
 				// showMenu();
-				break;
+				break;*/
 			// case R.id.tv_letter:
 			// startActivity(new Intent(getActivity(),
 			// FriendAddActivity.class));
 			// break;
-			case R.id.tv_Comments:
+			/*case R.id.tv_Comments:
 				startActivityForResult(new Intent(getActivity(),
 						BarcodeActivity.class), 1);
+				break;*/
+			default:
 				break;
 			}
 		}
@@ -211,9 +213,9 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 				removeFriendThreadMark(msg.arg1);
 				friendAdapter.notifyDataSetChanged();
 				break;*/
-			case get_all_friend:
+			/*case get_all_friend:
 				// jsonFriendData(msg.obj.toString());
-				break;
+				break;*/
 			}
 		}
 	};
@@ -446,7 +448,8 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 						.setText("" + noticeData.getUnread_count());
 			}
 			holder.tv_content.setText(getFaceImage(noticeData.getContent()));
-			holder.tv_type.setText(noticeData.getFriend_name());
+			
+			/*holder.tv_type.setText(noticeData.getFriend_name());*/
 			holder.ll_fm_notice.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {

@@ -220,7 +220,7 @@ public class TravelActivity extends Activity {
 		try {
 			travelDatas.clear();
 			JSONObject jsonObject = new JSONObject(result);
-			String distance = "Distance:" + jsonObject.getString("total_distance") + "KM";
+			String distance = "Distance :" + jsonObject.getString("total_distance") + "KM";
 			tv_distance.setText(distance);
 			String fuel = "Fuel Cost:" + jsonObject.getString("total_fuel") + "L";
 			tv_fuel.setText(fuel);

@@ -365,13 +365,17 @@
     <string name="set_vibrate">set vibrate sensitivity</string>
     <string name="save_success">Saved successfully</string>
     <string name="noneed">Optional</string>
-    <string name="car_travel">Car travel</string>
-    <string name="avg_fuel_cost">average fuel cost:</string>
-    <string name="travel_detail">travel：</string>
+    <string name="car_travel">Car Travel</string>
+    <string name="avg_fuel_cost">Avg Fuel Cost:</string>
+    <string name="travel_detail">Travel：</string>
     <string name="updata_loading">loading...</string>
     <string name="touch_add_cars">touch to add</string>
     
     <string name="sensitivity">Sensitive(highest at 1)</string>
     <string name="btn_set_vibrate">set vibrate sensitivity</string>
+    
+    <string name="month_fee_cost">Month Fee Cost:</string>
+    <string name="my_cars">My Car</string>
+    <string name="no_news">No News</string>
 
 </resources>

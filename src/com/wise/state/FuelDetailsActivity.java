@@ -280,18 +280,15 @@ public class FuelDetailsActivity extends Activity implements IXListViewListener 
 			if (Type == VALUE_TITLE) {
 				if (isNowYear(day)) {
 					Title.tv_title_month.setText(ChineseMonth(Integer
-							.valueOf(day.substring(5, 7))) + " " + "fee cost:");
+							.valueOf(day.substring(5, 7))) + " " + "Fee Cost:");
 					Title.tv_title_fee.setText(fuelData.getTotal_fee());
 				} else {
 					// 不是则显示年月
-					Title.tv_title_month.setText(day.substring(0, 7) + " " + "fee cost:");
+					Title.tv_title_month.setText(day.substring(0, 7) + " " + "Fee Cost:");
 					Title.tv_title_fee.setText(fuelData.getTotal_fee());
 				}
 			} else {
-				
-				/*mouDay = mounthDay[(Integer.valueOf((String)(day.subSequence(day.length() - 2, day.length()))))-1];				
-				System.out.println("O(∩_∩)O哈哈~O(∩_∩)O哈哈~" + mouDay);*/
-				
+
 				holder.tv_day.setText(mounthDay[(Integer.valueOf((String)(day.subSequence(day.length() - 2, day.length()))))-1]);
 				holder.tv_fuel.setText(fuelData.getAvg_fuel());
 				holder.total_distance.setText(fuelData.getTotal_distance());
@@ -397,9 +394,7 @@ public class FuelDetailsActivity extends Activity implements IXListViewListener 
 					+ carData.getDevice_id()
 					+ "/fee_detail?auth_code=" 
 					+ app.auth_code 
-					+ "&city="
-					
-					
+					+ "&city="			
 					
 					+ URLEncoder.encode("深圳", "UTF-8") 
 					+ "&gas_no=#93(#92)";

@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="我的车辆"
+            android:text="@string/my_cars"
             android:textColor="@color/white"
             android:textSize="@dimen/title" />
         <ImageView

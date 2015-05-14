@@ -49,7 +49,7 @@ public class SmsActivity extends Activity implements IXListViewListener {
 	private final int GET_SMS = 2;
 	private final int GET_NEXT_SMS = 3;
 
-	TextView tv_0,  tv_2, tv_3;
+	TextView tv_0,  tv_2, tv_3;// 错误，警告，系统三个选项
 	HScrollLayout hsl_sms;
 	int index_view = 0;
 	AppApplication app;
@@ -61,28 +61,40 @@ public class SmsActivity extends Activity implements IXListViewListener {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_sms);
+		
 		app = (AppApplication) getApplication();
+		//系统
 		tv_0 = (TextView) findViewById(R.id.tv_0);
 		tv_0.setOnClickListener(onClickListener);
-
+		//错误
 		tv_2 = (TextView) findViewById(R.id.tv_2);
 		tv_2.setOnClickListener(onClickListener);
+		//警告
 		tv_3 = (TextView) findViewById(R.id.tv_3);
 		tv_3.setOnClickListener(onClickListener);
 
-
+		//返回
 		ImageView iv_back = (ImageView) findViewById(R.id.iv_back);
 		iv_back.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				finish();
 			}
 		});
+		
+		
 		int type = getIntent().getIntExtra("type", 0);
+		
+		System.out.println("@@!!!#$%^%#$&*&^#%#$-->"+ type);
+		
 		if (type == 0) {
-			index_view = 2;
-		} else {
+			index_view = 2;//system
+		}else if(type == 3) {
+			index_view = type - 2;
+		}else {
 			index_view = type - 1;
 		}
+		
+
 		hsl_sms = (HScrollLayout) findViewById(R.id.hsl_sms);
 		hsl_sms.setOnViewChangeListener(new OnViewChangeListener() {
 			@Override
@@ -169,12 +181,12 @@ public class SmsActivity extends Activity implements IXListViewListener {
 	OnFinishListener onRefreshFinishListener = new OnFinishListener() {
 		@Override
 		public void OnFinish(int index) {
-			if (index < 4) {
+			if (index < 5) {
 				SmsView smsView = smsViews.get(index);
 				smsView.getSmsDatas().addAll(0, jsonData(smsView.getRefresh()));
 				smsView.getNewAdapter().notifyDataSetChanged();
-				// smsView.getLv_sms().setAdapter(new
-				// NewAdapter(smsView.getSmsDatas()));
+				/* smsView.getLv_sms().setAdapter(new
+						 NewAdapter(smsView.getSmsDatas()));*/
 				if (smsView.getSmsDatas().size() == 0) {
 					smsView.getRl_Note().setVisibility(View.VISIBLE);
 					smsView.getLv_sms().setVisibility(View.GONE);
@@ -183,12 +195,12 @@ public class SmsActivity extends Activity implements IXListViewListener {
 					smsView.getLv_sms().setVisibility(View.VISIBLE);
 				}
 			} else {// 加载
-				index = index - 4;
+				index = index - 5;//index > 4
 				SmsView smsView = smsViews.get(index);
 				smsView.getSmsDatas().addAll(jsonData(smsView.getLoad()));
 				smsView.getNewAdapter().notifyDataSetChanged();
-				// smsView.getLv_sms().setAdapter(new
-				// NewAdapter(smsView.getSmsDatas()));
+				/*smsView.getLv_sms().setAdapter(new
+						 NewAdapter(smsView.getSmsDatas()));*/
 				smsView.getLl_wait_show().setVisibility(View.GONE);
 				if (smsView.getSmsDatas().size() == 0) {
 					smsView.getRl_Note().setVisibility(View.VISIBLE);
@@ -247,18 +259,9 @@ public class SmsActivity extends Activity implements IXListViewListener {
 				
 				if (index_view == 0) {
 					index = 2;
-				} 
-				if (index_view ==1) {
-					index = 3;
+				} else {
+					index = index_view + 1;
 				}
-				if (index_view ==2) {
-					index = 0;
-				}
-				if(index_view==3)
-				{
-					index_view=0;
-				}
-				
 
 				String url = Constant.BaseUrl + "customer/" + app.cust_id
 						+ "/notification?auth_code=" + app.auth_code
@@ -529,16 +532,7 @@ public class SmsActivity extends Activity implements IXListViewListener {
 			if (Type.equals("0")) {
 				holder.tv_new_Regnum.setText(getResources().getString(
 						R.string.system_message));
-			}
-			// else if (Type.equals("1")) {
-						// holder.tv_new_Regnum.setText(getResources().getString(
-						// R.string.car_remind));
-						// }
-//			 else if (Type.equals("4")) {
-//					holder.tv_new_Regnum.setText(getResources().getString(
-//							R.string.illegal_remind));
-//				}
-			else if (Type.equals("2")) {
+			}else if (Type.equals("2")) {
 				holder.tv_new_Regnum.setText(getResources().getString(
 						R.string.car_failure));
 				

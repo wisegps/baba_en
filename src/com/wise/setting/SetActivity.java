@@ -167,12 +167,10 @@ public class SetActivity extends Activity implements TagAliasCallback {
 					intent.putExtra("ActivityState", SMS);
 					startActivity(intent);
 				} else {
-					app.noti_count = 0;
-//					startActivity(new Intent(SetActivity.this,
-//							NoticeActivity.class));
-					
-					startActivity(new Intent(SetActivity.this,
-							SmsActivity.class));
+					app.noti_count = 0;	
+					Intent intent = new Intent(SetActivity.this, SmsActivity.class);
+					intent.putExtra("type", 0);
+					startActivity(intent);
 				}
 				break;
 			case R.id.tv_car:

@@ -70,6 +70,7 @@
             android:textColor="@color/Green"
             android:textSize="@dimen/main" />
     </LinearLayout>
+    
 
     <customView.HScrollLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

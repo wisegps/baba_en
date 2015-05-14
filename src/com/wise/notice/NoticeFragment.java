@@ -57,8 +57,8 @@ public class NoticeFragment extends Fragment implements IXListViewListener {
 	/** 获取通知图片 **/
 	private final static int getNoticeImage = 2;
 	private final static int refreshNotice = 3;
-	private final static int get_all_friend = 4;
-	private final static int getFriendImage = 5;
+/*	private final static int get_all_friend = 4;
+	private final static int getFriendImage = 5;*/
 
 	NoticeAdapter noticeAdapter;
 	BtnListener btnListener;

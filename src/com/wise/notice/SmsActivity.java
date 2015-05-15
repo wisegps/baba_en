@@ -256,13 +256,15 @@ public class SmsActivity extends Activity implements IXListViewListener {
 		if (smsView.getSmsDatas() == null) {
 			try {
 				int index = 0;
-				
+				//每个选项卡去获取的信息
 				if (index_view == 0) {
 					index = 2;
-				} else {
-					index = index_view + 1;
+				}else if (index_view == 1){
+					index = 3;
 				}
-
+				else if(index_view == 2){
+					index = 4;;
+				}
 				String url = Constant.BaseUrl + "customer/" + app.cust_id
 						+ "/notification?auth_code=" + app.auth_code
 						+ "&msg_type=" + index;

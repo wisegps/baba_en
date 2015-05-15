@@ -67,12 +67,17 @@ public class FuelActivity extends Activity {
 	AppApplication app;
 	/** 星期数组 **/
 	String[] weekData;
+/*	CarData carData;*/
+	
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_fuel);
+		
 		app = (AppApplication) getApplication();
 		GetSystem.myLog(TAG, "onCreate");
 		fv = (FanView) findViewById(R.id.fv);
@@ -121,7 +126,9 @@ public class FuelActivity extends Activity {
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		fv.setViewSize(dm.widthPixels * 3 / 8);
 		ecv_fuel.setViewWidth(dm.widthPixels, true);
+		
 		index_car = getIntent().getIntExtra("index_car", 0);
+		
 		// 获取显示页面类型
 		type = getIntent().getIntExtra("type", 0);
 
@@ -291,8 +298,7 @@ public class FuelActivity extends Activity {
 				}
 				break;
 			case R.id.tasks_view:// index_car
-				Intent intent = new Intent(FuelActivity.this,
-						FuelDetailsActivity.class);
+				Intent intent = new Intent(FuelActivity.this, FuelDetailsActivity.class);
 				intent.putExtra("index_car", index_car);
 				startActivity(intent);
 				break;

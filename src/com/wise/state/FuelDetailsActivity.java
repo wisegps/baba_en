@@ -53,9 +53,7 @@ public class FuelDetailsActivity extends Activity implements IXListViewListener 
 	XListView lv_fuel;
 	TextView tv_title_fee;
 	CarData carData;
-	
 	String mouDay;
-
 	String NowYear = "";
 	AppApplication app;
 
@@ -64,6 +62,7 @@ public class FuelDetailsActivity extends Activity implements IXListViewListener 
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_fuel_details);
+		
 		app = (AppApplication) getApplication();
 		ll_wait = (WaitLinearLayout) findViewById(R.id.ll_wait);
 		ll_wait.setOnFinishListener(onFinishListener);
@@ -79,10 +78,13 @@ public class FuelDetailsActivity extends Activity implements IXListViewListener 
 		lv_fuel.setXListViewListener(this);
 		fuelAdapter = new FuelAdapter();
 		lv_fuel.setAdapter(fuelAdapter);
-		carData = (CarData)getIntent().getSerializableExtra("carData");
+		
+		carData = app.carDatas.get(getIntent().getIntExtra("index_car", 0));//获取上一个一面对应的汽车的数据2015-5-15
+	
 		if(carData == null && app.carDatas.size()>0){
 			carData = app.carDatas.get(0);
 		}
+		
 		tv_name.setText(carData.getNick_name());
 		NowYear = GetNowYear();
 		getData();

@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:padding="@dimen/margins"
-                android:text="2013-12"
+                android:text="2015-03-17"
                 android:textColor="@color/Green"
                 android:textSize="@dimen/main" />
 

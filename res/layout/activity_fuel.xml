@@ -177,7 +177,7 @@
             <LinearLayout
                 android:id="@+id/ll_total"
                 android:layout_width="fill_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margins"
                 android:orientation="horizontal" >
 
@@ -199,7 +199,7 @@
 
                     <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal" >
 
@@ -209,7 +209,7 @@
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:textColor="@color/navy"
-                            android:textSize="24dp" />
+                            android:textSize="24sp" />
 
                         <TextView
                             android:id="@+id/tv_content_2"
@@ -243,7 +243,7 @@
 
                     <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal" >
 
@@ -253,7 +253,7 @@
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:textColor="@color/navy"
-                            android:textSize="24dp" />
+                            android:textSize="24sp" />
 
                         <TextView
                             android:id="@+id/tv_content_3"
@@ -286,7 +286,7 @@
 
                     <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal" >
 
@@ -296,7 +296,7 @@
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:textColor="@color/navy"
-                            android:textSize="24dp" />
+                            android:textSize="24sp" />
 
                         <TextView
                             android:layout_width="wrap_content"

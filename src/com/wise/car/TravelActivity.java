@@ -85,6 +85,7 @@ public class TravelActivity extends Activity {
 	String Gas_no = "93#(92#)";
 	AppApplication app;
 	ProgressDialog dialog = null;
+	private int index_car=0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +93,7 @@ public class TravelActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_travel);
 		app = (AppApplication) getApplication();
-//		mGeoCoder = GeoCoder.newInstance();
-//		mGeoCoder.setOnGetGeoCodeResultListener(listener);
+
 		tv_travel_date = (TextView) findViewById(R.id.tv_travel_date);
 		tv_distance = (TextView) findViewById(R.id.tv_distance);
 		tv_fuel = (TextView) findViewById(R.id.tv_fuel);
@@ -108,8 +108,13 @@ public class TravelActivity extends Activity {
 		lv_activity_travel = (ListView) findViewById(R.id.lv_activity_travel);
 
 		device_id = getIntent().getStringExtra("device_id");
+		
+		/*index_car = getIntent().getIntExtra("index_car", 0);*/
+		
 		Gas_no = getIntent().getStringExtra("Gas_no");
+		
 		String iDate = getIntent().getStringExtra("Date");
+		
 		if (iDate != null) {
 			Date = iDate;
 		} else {

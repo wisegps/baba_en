@@ -106,13 +106,16 @@ public class DriveActivity extends Activity {
 					
 					Intent intent = new Intent(DriveActivity.this,TravelActivity.class);
 				
-					CarData carData = app.carDatas.get(index);
+					CarData carData = app.carDatas.get(index_car);
 					String device_id = carData.getDevice_id();
 					String Date = GetSystem.GetNowMonth().getDay();				
 					String Gas_no = "93#(92#)";	
 					intent.putExtra("device_id", device_id);
 					intent.putExtra("Gas_no", Gas_no);
 					intent.putExtra("Date", Date);
+					/*
+					intent.putExtra("index_car", index_car);*/
+					
 					startActivity(intent);
 					}
 					catch (Exception e) {

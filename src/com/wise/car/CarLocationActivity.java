@@ -167,7 +167,9 @@ public class CarLocationActivity extends Activity implements ConnectionCallbacks
 		}
 	};	
 
-
+	/**
+	  * Google 地图初始化
+	 */
 	private void initMapView(){	  
 
 		if(mMap==null){
@@ -263,12 +265,12 @@ private void trackingCar(LatLng lng1, LatLng lng2) {
 			if (isFristCarLocation) {
 				isFristCarLocation = false;
 				// 第一次将镜头移动到车的位置到地图中间
-			    CameraPosition carLocation = new CameraPosition.Builder().target(circle).zoom(13.5f).bearing(0).tilt(0).build();
+			    CameraPosition carLocation = new CameraPosition.Builder().target(circle).zoom(14.5f).bearing(0).tilt(0).build();
 				mMap.animateCamera(CameraUpdateFactory.newCameraPosition(carLocation));	
 			} else {
 				if (isTracking) {
 					//跟踪的时候将镜头移动车的位置到地图中间
-				    CameraPosition shenzhen = new CameraPosition.Builder().target(circle).zoom(13.5f).bearing(0).tilt(0).build();
+				    CameraPosition shenzhen = new CameraPosition.Builder().target(circle).zoom(14.5f).bearing(0).tilt(0).build();
 					mMap.animateCamera(CameraUpdateFactory.newCameraPosition(shenzhen));
 				}
 			}
